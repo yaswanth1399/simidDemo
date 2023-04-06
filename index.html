@@ -58,7 +58,7 @@ bottom: 1%;
     <div id="content_container">
       <!-- <h2 id="ad_text"></h2> -->
       <div id="content_box" class="hidden" style="width: 100%">
-        <iframe class="iframe" src="https://yaswanth1399.github.io/simidDemo/starbucks.png"></iframe>
+        <iframe class="iframe" onload="iframeLoaded()" src="https://yaswanth1399.github.io/simidDemo/starbucks.png"></iframe>
       </div> 
     </div>
     <script>
@@ -66,6 +66,8 @@ bottom: 1%;
       // may wish to wait for assets to load before calling ready.
       const hoverNonLinear = new HoverNonLinear();
       hoverNonLinear.ready();
+      function iframeLoaded() {var iframe = document.querySelector('iframe');var iframeContent = iframe.contentWindow.document;var contentImage = iframeContent.querySelector('img');contentImage.style.width = '100%';contentImage.style.height = 'auto'; }
+  
     </script>
   </body>
 </html>
