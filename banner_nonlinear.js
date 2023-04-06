@@ -35,45 +35,45 @@ class BannerNonLinear extends BaseSimidCreative {
         // this.updateCreativeWithParams_();
     }
 
-    /**
-     * Checks validity of ad parameters and rejects with proper message if invalid.
-     * @param {!Object} eventData an object that contains information details for a particular event
-     *   such as event type, unique Ids, creativeData and environmentData.
-     * @private 
-     */ 
-    validateAndParseAdParams_(eventData) {
-        if (!this.creativeData.adParameters) {
-            this.simidProtocol.reject(eventData, {
-                errorCode: CreativeErrorCode.UNSPECIFIED, 
-                message: 'Ad parameters not found'
-            });
-            return;
-        }
+    // /**
+    //  * Checks validity of ad parameters and rejects with proper message if invalid.
+    //  * @param {!Object} eventData an object that contains information details for a particular event
+    //  *   such as event type, unique Ids, creativeData and environmentData.
+    //  * @private 
+    //  */ 
+    // validateAndParseAdParams_(eventData) {
+    //     if (!this.creativeData.adParameters) {
+    //         this.simidProtocol.reject(eventData, {
+    //             errorCode: CreativeErrorCode.UNSPECIFIED, 
+    //             message: 'Ad parameters not found'
+    //         });
+    //         return;
+    //     }
 
-        let adParams = "";
-        try {
-            adParams = JSON.parse(this.creativeData.adParameters);
-        } catch (exception) {
-            this.simidProtocol.reject(eventData, {
-                errorCode: CreativeErrorCode.CREATIVE_INTERNAL_ERROR, 
-                message: 'Invalid JSON input for ad parameters'
-            });
-            return;
-        }
+    //     let adParams = "";
+    //     try {
+    //         adParams = JSON.parse(this.creativeData.adParameters);
+    //     } catch (exception) {
+    //         this.simidProtocol.reject(eventData, {
+    //             errorCode: CreativeErrorCode.CREATIVE_INTERNAL_ERROR, 
+    //             message: 'Invalid JSON input for ad parameters'
+    //         });
+    //         return;
+    //     }
 
-        this.bannerText_ = adParams['bannerText']; 
-        this.webUrl_ = adParams['webUrl'];
+    //     this.bannerText_ = adParams['bannerText']; 
+    //     this.webUrl_ = adParams['webUrl'];
 
-        if (!this.webUrl_) {
-            this.simidProtocol.reject(eventData, {
-              errorCode: CreativeErrorCode.UNSPECIFIED, 
-              message: 'Required field webUrl not found'
-            });
-            return;
-        }
+    //     if (!this.webUrl_) {
+    //         this.simidProtocol.reject(eventData, {
+    //           errorCode: CreativeErrorCode.UNSPECIFIED, 
+    //           message: 'Required field webUrl not found'
+    //         });
+    //         return;
+    //     }
 
-        this.simidProtocol.resolve(eventData, {});
-    }
+    //     this.simidProtocol.resolve(eventData, {});
+    // }
     /**
      * Adds actions to different buttons available on the overlay.
      * @private
