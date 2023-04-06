@@ -25,7 +25,7 @@ class BannerNonLinear extends BaseSimidCreative {
          */
         this.webUrl_ = null;
 
-        this.addButtonClickActions_();
+        // this.addButtonClickActions_();
     }
 
     /** @override */
@@ -78,33 +78,33 @@ class BannerNonLinear extends BaseSimidCreative {
      * Adds actions to different buttons available on the overlay.
      * @private
      */
-    addButtonClickActions_() {
-        this.sendMessageOnButtonClick_('close_ad', CreativeMessage.REQUEST_STOP);
+    // addButtonClickActions_() {
+    //     this.sendMessageOnButtonClick_('close_ad', CreativeMessage.REQUEST_STOP);
         
-        this.sendMessageOnButtonClick_('ad_text', CreativeMessage.EXPAND_NONLINEAR, () => {
-            document.getElementById('ad_text').classList.add('hidden');
-            document.getElementById('content_box').classList.remove('hidden');
-        });
+    //     this.sendMessageOnButtonClick_('ad_text', CreativeMessage.EXPAND_NONLINEAR, () => {
+    //         document.getElementById('ad_text').classList.add('hidden');
+    //         document.getElementById('content_box').classList.remove('hidden');
+    //     });
 
-        this.sendMessageOnButtonClick_('minimize_ad', CreativeMessage.COLLAPSE_NONLINEAR, () => {
-            document.getElementById('ad_text').classList.remove('hidden');
-            document.getElementById('content_box').classList.add('hidden');
-        });
-    }
+    //     this.sendMessageOnButtonClick_('minimize_ad', CreativeMessage.COLLAPSE_NONLINEAR, () => {
+    //         document.getElementById('ad_text').classList.remove('hidden');
+    //         document.getElementById('content_box').classList.add('hidden');
+    //     });
+    // }
 
-    /**
-     * Sends a SIMID message whenever an element is clicked.
-     * @param {String} elementName The name of the element.
-     * @param {String} message The message to send to the player.
-     * @param {?Function} callback This gets executed after the message to the player is sent.
-     * @private
-     */
-    sendMessageOnButtonClick_(elementName, message, callback) {
-        const sendMessageFunction = () => {
-            this.simidProtocol.sendMessage(message);
-            if (callback) {callback()};
-        }
-        document.getElementById(elementName).addEventListener(
-            'click', sendMessageFunction);
-    }
+    // /**
+    //  * Sends a SIMID message whenever an element is clicked.
+    //  * @param {String} elementName The name of the element.
+    //  * @param {String} message The message to send to the player.
+    //  * @param {?Function} callback This gets executed after the message to the player is sent.
+    //  * @private
+    //  */
+    // sendMessageOnButtonClick_(elementName, message, callback) {
+    //     const sendMessageFunction = () => {
+    //         this.simidProtocol.sendMessage(message);
+    //         if (callback) {callback()};
+    //     }
+    //     document.getElementById(elementName).addEventListener(
+    //         'click', sendMessageFunction);
+    // }
 }
