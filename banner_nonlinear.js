@@ -32,7 +32,7 @@ class BannerNonLinear extends BaseSimidCreative {
     onInit(eventData) {
         this.updateInternalOnInit(eventData);
         this.validateAndParseAdParams_(eventData);
-        this.updateCreativeWithParams_();
+        // this.updateCreativeWithParams_();
     }
 
     /**
