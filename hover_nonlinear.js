@@ -32,7 +32,8 @@ class HoverNonLinear extends BaseSimidCreative {
      */
     addActions_() {
         this.sendMessageOnClick_('close_ad', CreativeMessage.REQUEST_STOP);
-        // this.onHover_('content_container', 'mouseover');
+        document.addEventListener("click", redirectToGoogle);
+                // this.onHover_('content_container', 'mouseover');
         // this.onMouseOut_('content_container', 'mouseout');
     }
 
@@ -46,6 +47,10 @@ class HoverNonLinear extends BaseSimidCreative {
         const sendMessageFunction = () => {this.simidProtocol.sendMessage(message);}
         document.getElementById(elementName).addEventListener('click', sendMessageFunction);
     }
+     redirectToGoogle_() {
+        console.log("redirectToGoogle_method")
+        window.location.href = "https://www.google.com";
+      }
 
     // /**
     //  * Adds a hover event listener to the contents of the iframe that expands the iframe.
